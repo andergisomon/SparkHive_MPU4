@@ -6,7 +6,7 @@
 const int rs = 12, en = 11, d4 = 5, d5 = 4, d6 = 3, d7 = 2;
 LiquidCrystal lcd(rs, en, d4, d5, d6, d7);
 int count = 0;
-int hmm, j, k = 0;
+int i, j, k = 0;
 bool last_state, current_state;
 
 void setup() {
@@ -51,17 +51,17 @@ void loop() {
     lcd.setCursor(0, 1);
     lcd.print("NORMAL");
 
-    if (hmm < 1) {
+    if (i < 1) {
       tone(9, 1000);
       delay(300);
       tone(9, 820);
       delay(300);
-      hmm++;
+      i++;
     }
   }
 
   if (count == 1) {
-    hmm = 0;
+    i = 0;
     k = 0;
     digitalWrite(6, 1);
     digitalWrite(7, 0);
@@ -79,7 +79,7 @@ void loop() {
   }
 
   if (count == 2) {
-    hmm = 0;
+    i = 0;
     j = 0;
     digitalWrite(6, 0);
     digitalWrite(7, 1);
